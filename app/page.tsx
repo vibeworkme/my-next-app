@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion' - Removed to fix build error
 import Hero from './components/Hero'
 
 export default function Home() {
