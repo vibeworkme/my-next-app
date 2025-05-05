@@ -1,12 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Lottie from 'lottie-react';
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
+  const [animationData, setAnimationData] = useState(null);
   
   useEffect(() => {
     setVisible(true);
+    
+    // Lottie 애니메이션 데이터 가져오기
+    fetch('/animations/ai-worlflow.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('애니메이션 로드 실패:', error));
   }, []);
 
   return (
@@ -45,20 +53,24 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* 우측 영역 - 정갈한 빈 공간 또는 단정한 일러스트 */}
+          {/* 우측 영역 - Lottie 애니메이션 */}
           <div 
             className={`transition-opacity duration-1000 ease-in-out delay-300 ${
               visible ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className="aspect-square max-w-md mx-auto relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-72 h-72 rounded-full bg-[#A47C6F]/5 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full bg-[#A47C6F]/10"></div>
+            <div className="w-full max-w-lg mx-auto">
+              {animationData ? (
+                <Lottie 
+                  animationData={animationData} 
+                  loop={true}
+                  className="w-full h-full"
+                />
+              ) : (
+                <div className="w-full h-64 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+                  애니메이션 로딩 중...
                 </div>
-              </div>
-              <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-[#A47C6F]/20"></div>
-              <div className="absolute bottom-1/3 left-1/4 w-10 h-10 rounded-full bg-[#A47C6F]/15"></div>
+              )}
             </div>
           </div>
         </div>
