@@ -12,7 +12,7 @@ let db: Firestore | null = null;
 let auth: Auth | null = null;
 let storage: FirebaseStorage | null = null;
 
-// 클라이언트 측에서만 실행 - 빌드 시 이 코드가 실행되지 않도록 함
+// 브라우저 환경에서만 실행되도록 보장
 if (typeof window !== 'undefined') {
   try {
     // Firebase 설정 - 환경 변수가 없을 경우 안전한 기본값 사용
@@ -25,22 +25,26 @@ if (typeof window !== 'undefined') {
       appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:000000000000:web:0000000000000000000000"
     };
 
-    // 브라우저 환경에서만 Firebase 초기화
+    // 이미 초기화된 앱이 있는지 확인
     if (getApps().length === 0) {
       firebaseApp = initializeApp(firebaseConfig);
-      if (firebaseApp) {
-        db = getFirestore(firebaseApp);
-        auth = getAuth(firebaseApp);
-        storage = getStorage(firebaseApp);
-      }
     } else {
       firebaseApp = getApps()[0];
+    }
+
+    // Firebase 서비스 인스턴스 생성
+    if (firebaseApp) {
       db = getFirestore(firebaseApp);
       auth = getAuth(firebaseApp);
       storage = getStorage(firebaseApp);
     }
   } catch (error) {
     console.error("Firebase 초기화 오류:", error);
+    
+    // 개발 모드에서만 전체 에러 표시
+    if (process.env.NODE_ENV === 'development') {
+      console.error("자세한 오류:", error);
+    }
   }
 }
 
