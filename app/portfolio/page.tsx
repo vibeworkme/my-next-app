@@ -38,11 +38,13 @@ export default function Portfolio() {
               className="bg-light rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
               // initial, whileInView, viewport, transition 속성 제거
             >
-              <img
+              {/* <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-48 object-cover"
-              />
+              /> */}
+              {/* 임시 Placeholder */}
+              <div className="w-full h-48 bg-olive/30 flex items-center justify-center text-deep/50">Image Placeholder</div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-brand mb-2">
                   {item.title}

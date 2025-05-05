@@ -35,11 +35,15 @@ export default function People() {
               className="flex flex-col items-center text-center bg-light p-6 rounded-xl shadow-md hover:shadow-xl transition"
               // initial, whileInView, viewport, transition 속성 제거
             >
-              <img
+              {/* <img
                 src={person.image}
                 alt={person.name}
                 className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-brand"
-              />
+              /> */}
+              {/* 임시 Placeholder */}
+              <div className="w-32 h-32 rounded-full bg-brand/30 flex items-center justify-center text-deep/50 mb-4 border-4 border-brand">
+                 Img
+              </div>
               <h3 className="text-xl font-semibold text-brand mb-1">{person.name}</h3>
               <p className="text-sm text-olive font-medium mb-2">{person.role}</p>
               <p className="text-gray-700 text-sm leading-relaxed">{person.bio}</p>
