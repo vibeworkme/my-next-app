@@ -1,4 +1,6 @@
-export default {
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -8,7 +10,12 @@ export default {
         olive: '#C7C8A9',
         deep: '#5A4E4D',
       },
+      fontFamily: {
+        sans: ['Pretendard', 'sans-serif'],
+      },
     },
   },
   plugins: [],
-}; 
+}
+
+export default config 
