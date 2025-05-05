@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import aiWorkflow from '@/public/animations/ai-workflow.json'; // 경로 별칭 사용
+import aiWorkflow from '@public/animations/ai-workflow.json'; // @public 별칭 사용
 
 export default function Hero() {
   return (
