@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // 주석 처리
 
 const people = [
   {
@@ -21,24 +21,19 @@ export default function People() {
   return (
     <section className="min-h-screen bg-white text-deep px-6 py-24">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <h2 // motion. 제거
           className="text-4xl font-bold text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial, animate, transition 속성 제거
         >
           함께 일하는 사람들
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-10">
           {people.map((person, index) => (
-            <motion.div
+            <div // motion. 제거
               key={index}
               className="flex flex-col items-center text-center bg-light p-6 rounded-xl shadow-md hover:shadow-xl transition"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              // initial, whileInView, viewport, transition 속성 제거
             >
               <img
                 src={person.image}
@@ -48,7 +43,7 @@ export default function People() {
               <h3 className="text-xl font-semibold text-brand mb-1">{person.name}</h3>
               <p className="text-sm text-olive font-medium mb-2">{person.role}</p>
               <p className="text-gray-700 text-sm leading-relaxed">{person.bio}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // 주석 처리
 
 const services = [
   {
@@ -27,24 +27,19 @@ export default function Services() {
   return (
     <section className="min-h-screen bg-white text-deep px-6 py-24">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <h2 // motion. 제거
           className="text-4xl font-bold text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial, animate, transition 속성 제거
         >
           우리가 하는 일
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div // motion. 제거
               key={index}
               className="bg-light p-6 rounded-xl shadow-md hover:shadow-xl transition"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              // initial, whileInView, viewport, transition 속성 제거
             >
               <h3 className="text-xl font-semibold text-brand mb-2">{service.title}</h3>
               <p className="text-gray-700 mb-4">{service.description}</p>
@@ -53,7 +48,7 @@ export default function Services() {
                   <li key={i}>{keyword}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

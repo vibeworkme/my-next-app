@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // 주석 처리
 
 const portfolios = [
   {
@@ -24,24 +24,19 @@ export default function Portfolio() {
   return (
     <section className="min-h-screen bg-white text-deep px-6 py-24">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <h2 // motion. 제거
           className="text-4xl font-bold text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial, animate, transition 속성 제거
         >
           실행 사례와 기록
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {portfolios.map((item, index) => (
-            <motion.div
+            <div // motion. 제거
               key={index}
               className="bg-light rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              // initial, whileInView, viewport, transition 속성 제거
             >
               <img
                 src={item.image}
@@ -54,7 +49,7 @@ export default function Portfolio() {
                 </h3>
                 <p className="text-gray-700 text-sm">{item.summary}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

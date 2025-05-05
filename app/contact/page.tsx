@@ -1,34 +1,28 @@
 'use client';
 
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // 주석 처리
 
 export default function Contact() {
   return (
     <section className="min-h-screen bg-light text-deep px-6 py-24">
       <div className="max-w-xl mx-auto">
-        <motion.h2
+        <h2 // motion. 제거
           className="text-4xl font-bold text-center mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          // initial, animate, transition 속성 제거
         >
           편지를 보내주세요
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p // motion. 제거
           className="text-center text-gray-700 mb-12 text-base"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          // initial, animate, transition 속성 제거
         >
           위브앤과 함께할 수 있는 이야기가 있다면<br />
           부담 없이 남겨주세요. 정성껏 답장드릴게요.
-        </motion.p>
+        </p>
 
-        <motion.form
+        <form // motion. 제거
           className="space-y-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          // initial, animate, transition 속성 제거
         >
           <div>
             <label htmlFor="name" className="block mb-2 text-sm font-medium">
@@ -72,7 +66,7 @@ export default function Contact() {
           >
             보내기
           </button>
-        </motion.form>
+        </form>
       </div>
     </section>
   );
