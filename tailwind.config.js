@@ -15,6 +15,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'],
+        heading: ['"Black Han Sans"', 'sans-serif'],
+        square: ['NanumSquare', 'sans-serif'],
       },
     }
   },

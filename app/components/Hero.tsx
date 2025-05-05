@@ -1,14 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Lottie from 'lottie-react';
 
 export default function Hero() {
   // 텍스트 애니메이션 효과를 위한 상태
   const [visible, setVisible] = useState(false);
+  const [animationData, setAnimationData] = useState(null);
   
   useEffect(() => {
     setVisible(true);
+    
+    // Lottie 애니메이션 데이터 가져오기
+    fetch('/animations/ai-worlflow.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('애니메이션 로드 실패:', error));
   }, []);
 
   return (
@@ -22,12 +29,12 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6">
+            <h1 className="font-heading text-5xl sm:text-6xl lg:text-8xl tracking-tight leading-none mb-8">
               <span className="block">AI 시대,</span>
               <span className="block">일의 흐름을</span>
               <span className="bg-gradient-to-r from-brand to-deep bg-clip-text text-transparent">다시 설계하다</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-10 font-medium max-w-md">
+            <p className="font-square text-lg sm:text-xl text-gray-600 mb-10 font-bold max-w-md">
               위브앤은 실행을 통해 사람과 조직의 가능성을 실현합니다.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -47,34 +54,18 @@ export default function Hero() {
           </div>
           
           <div className={`flex justify-center transition-all duration-1000 delay-300 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="relative w-full max-w-md aspect-square">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Image
-                  src="/globe.svg"
-                  alt="글로벌 네트워크"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-contain"
+            <div className="w-full max-w-lg">
+              {animationData ? (
+                <Lottie 
+                  animationData={animationData} 
+                  loop={true}
+                  className="w-full h-full"
                 />
-              </div>
-              <div className="absolute -top-4 -left-4 w-24 h-24">
-                <Image
-                  src="/window.svg"
-                  alt="윈도우"
-                  width={100}
-                  height={100}
-                  className="w-full h-full object-contain animate-pulse"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24">
-                <Image
-                  src="/file.svg"
-                  alt="파일"
-                  width={100}
-                  height={100}
-                  className="w-full h-full object-contain animate-bounce"
-                />
-              </div>
+              ) : (
+                <div className="w-full h-64 bg-gray-200 rounded-xl flex items-center justify-center">
+                  애니메이션 로딩 중...
+                </div>
+              )}
             </div>
           </div>
         </div>
