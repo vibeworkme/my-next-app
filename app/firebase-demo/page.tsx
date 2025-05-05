@@ -1,3 +1,5 @@
+'use client';
+
 import FirebaseDemo from '../components/FirebaseDemo';
 
 export default function FirebaseDemoPage() {
