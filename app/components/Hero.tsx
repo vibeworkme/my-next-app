@@ -2,14 +2,23 @@
 
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import aiWorkflow from '@public/animations/ai-workflow.json'; // @public 별칭 사용
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('/animations/ai-workflow.json')
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data))
+      .catch((error) => console.error('Error fetching animation data:', error));
+  }, []);
+
   return (
     <section
       className="relative bg-gradient-to-r from-deep via-black to-deep text-light py-32 px-6 overflow-hidden"
       style={{
-        backgroundImage: 'url("/images/hero-bg.jpg")', // public 경로는 그대로 유지
+        backgroundImage: 'url("/images/hero-bg.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -39,8 +48,9 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4 }}
         >
-          {/* 원래 Lottie 로딩 방식 */}
-          <Lottie animationData={aiWorkflow} loop={true} />
+          {animationData && (
+            <Lottie animationData={animationData} loop={true} />
+          )}
         </motion.div>
       </div>
     </section>
