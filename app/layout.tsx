@@ -1,9 +1,10 @@
 import './globals.css'
+import Navbar from './components/Navbar'
 import { ReactNode } from 'react'
 
 export const metadata = {
-  title: '위브앤',
-  description: 'AI 시대, 교육과 컨설팅의 새로운 흐름',
+  title: 'WEAVE& – AI 시대의 교육 디자이너',
+  description: '교육을 통해 새로운 비즈니스 기회를 설계합니다.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-light text-deep">{children}</body>
+      <body className="bg-light text-deep font-sans">
+        <Navbar />
+        <main className="pt-24">{children}</main>
+      </body>
     </html>
   )
 } 
