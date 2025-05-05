@@ -1,19 +1,20 @@
 export default function Home() {
   return (
-    <main className="bg-light text-deep min-h-screen flex flex-col justify-center items-center px-6 py-20">
-      <h1 className="text-5xl sm:text-6xl font-bold text-brand text-center mb-6 leading-tight">
-        감성을 설계하는<br />AI 교육·컨설팅 브랜드
+    <section className="min-h-screen bg-light flex flex-col justify-center items-center text-center px-6">
+      <h1 className="text-4xl md:text-6xl font-bold text-deep mb-4">
+        AI 시대, 일의 본질을 재설계하는 파트너
       </h1>
-      <p className="text-lg sm:text-xl text-deep/80 text-center max-w-2xl mb-8">
-        위브앤은 기술과 사람, 학습과 실행 사이를 따뜻하게 연결합니다.<br />
-        생성형 AI 시대, 우리는 함께 성장할 수 있는 배움의 길을 만듭니다.
+      <p className="text-lg md:text-xl text-brand mb-6 max-w-xl">
+        위브앤은 도구를 넘어서, 사람과 흐름을 설계합니다.
       </p>
-      <a
-        href="/about"
-        className="mt-4 px-6 py-3 bg-brand text-white rounded-xl shadow-md hover:bg-deep transition"
-      >
-        위브앤 이야기 보기
-      </a>
-    </main>
+      <div className="flex gap-4">
+        <a href="/about" className="bg-brand text-white px-6 py-3 rounded-2xl shadow hover:bg-deep transition">
+          회사 소개 보기
+        </a>
+        <a href="/contact" className="border border-brand text-brand px-6 py-3 rounded-2xl hover:bg-brand hover:text-white transition">
+          문의하기
+        </a>
+      </div>
+    </section>
   );
 } 
