@@ -14,7 +14,7 @@ module.exports = {
         olive: "#d1fae5"
       },
       fontFamily: {
-        sans: ['Pretendard', 'sans-serif'],
+        sans: ['"SUIT"', 'Pretendard', 'sans-serif'],
         heading: ['"Black Han Sans"', 'sans-serif'],
         square: ['NanumSquare', 'sans-serif'],
       },
