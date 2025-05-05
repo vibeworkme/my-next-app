@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from './components/Navbar'
 import { ReactNode } from 'react'
+import { AuthProvider } from './contexts/AuthContext'
 
 export const metadata = {
   title: 'WEAVE& – AI 시대의 교육 디자이너',
@@ -33,8 +34,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="bg-light text-deep font-sans">
-        <Navbar />
-        <main className="pt-24">{children}</main>
+        <AuthProvider>
+          <Navbar />
+          <main className="pt-24">{children}</main>
+        </AuthProvider>
       </body>
     </html>
   )
